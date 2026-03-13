@@ -22,26 +22,27 @@ final class SecurityController extends AbstractController
 
 
     #[Route('/register', name: 'register', methods: ['POST'])]
-    #[OA\Post(
-        path: "/api/register",
-        summary: "Inscription d'un nouvel Utilisateur", )]
-    #[OA\RequestBody(
-        required: true,
-        description: "Données de l'Utilisateur à inscrire", )]
-    #[OA\JsonContent(
-        "object",
-        @OA\Property(property: "email", type: "string", example: "adresse@email.com"),
-        @OA\Property(property: "password", type: "string", example: "Mot de Passe")
-    )]
-    #[OA\Response(
-        response: 201,
-        description: "l'Utilisateur est inscrit avec succès", )]
-    #[OA\JsonContent(
-        "object",
-        @OA\Property(property: "user", type: "string", example: "adresse@email.com"),
-        @OA\Property(property: "apiToken", type: "string", example: "24asdc2130dc9w332sd"),
-        @OA\Property(property: "roles", type: "array", @OA\Items(type: "string", example: "ROLE_USER"))
-    )]
+    // #[OA\Post(
+    //     path: "/api/register",
+    //     summary: "Inscription d'un nouvel Utilisateur", )]
+    // #[OA\RequestBody(
+    //     required: true,
+    //     description: "Données de l'Utilisateur à inscrire", )]
+    // #[OA\JsonContent(
+    //     "object",
+    //     @OA\Property(property: "email", type: "string", example: "adresse@email.com"),
+    //     @OA\Property(property: "password", type: "string", example: "Mot de Passe")
+    // )]
+    // #[OA\Response(
+    //     response: 201,
+    //     description: "l'Utilisateur est inscrit avec succès", )]
+    // #[OA\JsonContent(
+    //     "object",
+    //     @OA\Property(property: "user", type: "string", example: "adresse@email.com"),
+    //     @OA\Property(property: "apiToken", type: "string", example: "24asdc2130dc9w332sd"),
+    //     @OA\Property("roles", "array", 
+    //     @OA\Items(type: "string", example: "ROLE_USER"))
+    // )]
 
     public function register(Request $request, UserPasswordHasherInterface $passwordHasher): JsonResponse
     {
